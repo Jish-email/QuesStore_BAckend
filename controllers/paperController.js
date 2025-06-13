@@ -61,7 +61,7 @@ export const getPapersBySubject = async (req, res) => {
     const { subject } = req.params;
 
     const papers = await Paper.find({ subject });
-    console.log(papers);
+    (papers);
 
     res.json(papers);
   } catch (err) {

@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 5000;
 
 dbconnect()
     .then(() => {
-        console.log("Database connected successfully");
+        ("Database connected successfully");
     })
     .then(() => {
 
         app.listen(PORT, () => {
-            console.log(`Server is running at http://localhost:${PORT}`);
+            (`Server is running at http://localhost:${PORT}`);
         });
     })
     .catch((error) => {

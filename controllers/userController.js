@@ -19,7 +19,7 @@ const generateTokens = async (user_id) => {
 export const signup = async (req, res) => {
   try {
     const { name, y_id, password } = req.body;
-    console.log("Received signup data:", req.body);
+    ("Received signup data:", req.body);
 
     const existingUser = await User.findOne({ y_id });
     if (existingUser) {
@@ -30,7 +30,7 @@ export const signup = async (req, res) => {
     let profilePicUrl = "";
     if (req.file) {
       const result = await uploadImageToCloudinary(req.file.path);
-      console.log("Cloudinary result:", result);
+      ("Cloudinary result:", result);
 
       profilePicUrl = result.secure_url;
       // fs.unlinkSync(req.file.path); // ✅ This line can be safely re-enabled
@@ -44,7 +44,7 @@ export const signup = async (req, res) => {
     });
 
     await user.save();
-    console.log("User saved:", user);
+    ("User saved:", user);
 
     res.status(201).json({
       message: "Signup successful",
