@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 5000;
 
 dbconnect()
     .then(() => {
-        ("Database connected successfully");
+        console.log("Database connected successfully");
+        
     })
     .then(() => {
 

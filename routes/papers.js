@@ -11,7 +11,7 @@ import {
 
 const router = express.Router();
 
-router.post("/upload",auth, upload.single("paperurl"),uploadPaper);
+router.post("/upload", upload.single("file"), auth, uploadPaper);
 
 router.get("/getallpaper", getAllPapers);
 

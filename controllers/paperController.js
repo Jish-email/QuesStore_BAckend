@@ -3,13 +3,18 @@ import { User } from "../models/user.js"; // Import User model
 import fs from "fs";
 
 export const uploadPaper = async (req, res) => {
+      console.log("📄 req.file:", req.file);
+
   try {
     const { branch, subject, year, session } = req.body;
     const userId = req.user._id; // Get userId from auth middleware
     const filePath = req.file.path;
 
     console.log(filePath);
-    
+
+    console.log("📄 req.file:", req.file);
+    console.log("📥 req.body:", req.body);
+
 
     // Read file as buffer
     const fileBuffer = fs.readFileSync(filePath);
@@ -33,7 +38,7 @@ export const uploadPaper = async (req, res) => {
     if (userId) {
       const user = await User.findByIdAndUpdate(
         userId,
-        { $inc: { contributeScore:  75} },
+        { $inc: { contributeScore: 75 } },
         { new: true }
       );
       updatedScore = user?.contributeScore;
