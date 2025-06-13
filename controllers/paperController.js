@@ -8,6 +8,9 @@ export const uploadPaper = async (req, res) => {
     const userId = req.user._id; // Get userId from auth middleware
     const filePath = req.file.path;
 
+    console.log(filePath);
+    
+
     // Read file as buffer
     const fileBuffer = fs.readFileSync(filePath);
 
