@@ -3,17 +3,13 @@ import { User } from "../models/user.js"; // Import User model
 import fs from "fs";
 
 export const uploadPaper = async (req, res) => {
-      console.log("📄 req.file:", req.file);
 
   try {
     const { branch, subject, year, session } = req.body;
     const userId = req.user._id; // Get userId from auth middleware
     const filePath = req.file.path;
 
-    console.log(filePath);
-
-    console.log("📄 req.file:", req.file);
-    console.log("📥 req.body:", req.body);
+  
 
 
     // Read file as buffer
